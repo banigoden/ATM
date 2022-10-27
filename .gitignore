@@ -1,0 +1,6 @@
+src/main/java/atm/menu/test/
+*.log
+.classpath
+.settings/
+.tmp
+target/
