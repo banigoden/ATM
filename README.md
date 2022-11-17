@@ -1,24 +1,22 @@
-atm definition - 
-implement solution  for serv card cliets with cards.
+atm definition - implement solutions for serv card clients with cards.
 Namely:
 check balance
 print receipt
-withdrow cash.
+withdraw cash.
 
-Client should be verify.
+A client should be verified.
 verification
 blocked if 3 times wrong.
 
+if a card is left in the card reader, the ATM will take it back in 1 minute.  
 
-if left card inside, 
-
-solution will deployed at ATM such have different configurations.ATMs(hardware), that contains:
+the solution will be deployed at ATMs such have different configurations.ATMs(hardware), that contain:
 Devices:
 monitor,
 touchscreen,
-cardreader and etc.
+card reader and etc.
 
-ATM abble to communicate woth GBIS by HTTP.
+ATM is able to communicate with GBIS by HTTP.
 
 
 Use cases:
@@ -28,7 +26,7 @@ Use cases:
 1.3 Authentification
  
 1.4  Show Menu
-1.5 Choose get balance item
+1.5 Choose get the balance item
 1.6 inquiry balance from GBIS
 1.7  show balance
 1.8 back  
@@ -43,7 +41,7 @@ Service
 Session start(Card)
 void stop(Session)
 void reject(Session)
-hadle(Command, Session)
+handle(Command, Session)
 
 2CardVerificationService
 verify(Card)
@@ -56,11 +54,3 @@ rander()
 
 AtmDispatcher
 dispatch()
-
-
-
-
-
-
-
-
