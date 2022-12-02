@@ -5,14 +5,13 @@ import java.util.Scanner;
 
 public class MenuRander {
 
-
-
-    public void menu(){
+    public static void menu(){
         System.out.println("1 Deposit\t" + "3 Balance inquiry\n" +  "2 Withdrow\t" + "4 Transfer & Payments\n"
         + "5 Return card\t");
+        render();
     }
 
-    public void render(){
+    public static void render(){
         int input = Requester.requestInt("Please enter the number ");
             switch (input) {
                 case 1 -> System.out.println("Deposit");

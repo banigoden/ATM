@@ -8,34 +8,15 @@ public class DebitCard extends Card {
 
     private int cardNumber;
     private String ownedBy;
-    private List<PaymentSystem> paymentSystems;
+    private List<Card> cards;
+    private PaymentSystem paymentSystem;
 
-    public DebitCard() {
-        paymentSystems = Arrays.asList(PaymentSystem.Visa, PaymentSystem.Mastercard,PaymentSystem.UnionPay, PaymentSystem.Coinbase);
+    public DebitCard(long cardNumber, String ownedBy, int pinCode, PaymentSystem paymentSystem) {
+        super(cardNumber, ownedBy, pinCode, paymentSystem);
     }
 
-    public int getCardNumber() {
-        return cardNumber;
-    }
 
-    public void setCardNumber(int cardNumber) {
-        this.cardNumber = cardNumber;
+    public void addPaymentSystem(Card card){
+        cards.add(card);
     }
-
-    public String getOwnedBy() {
-        return ownedBy;
-    }
-
-    public void setOwnedBy(String ownedBy) {
-        this.ownedBy = ownedBy;
-    }
-
-    public List<PaymentSystem> getPaymentSystems() {
-        return paymentSystems;
-    }
-
-    public void setPaymentSystems(List<PaymentSystem> paymentSystems) {
-        this.paymentSystems = paymentSystems;
-    }
-
 }

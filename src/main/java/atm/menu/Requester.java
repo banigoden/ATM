@@ -2,12 +2,9 @@ package atm.menu;
 
 import java.util.Scanner;
 
-class Requester implements AutoCloseable{
-    private static Scanner scanner;
+public class Requester implements AutoCloseable{
+    private static Scanner scanner = new Scanner(System.in);;
 
-    private Requester(){
-        this.scanner = new Scanner(System.in);
-    }
 
     public static String requestLine(String requestMessage){
         System.out.print(requestMessage);

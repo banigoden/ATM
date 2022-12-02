@@ -1,22 +1,30 @@
 package customer;
 
+import bank.card.Card;
+import bank.card.PaymentSystem;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Customer {
     private String firstName;
     private String secondName;
     private String address;
     private String dob; //Department of Bank
-    private int customerID;
-    private int cardNumber;
-    private int pinCode;
+    private long customerID;
+    private Card card;
+    private List<Card> cards;
 
-    public Customer(String firstName, String secondName, String address, String dob, int customerID, int cardNumber, int pinCode) {
+    public Customer(String firstName, String secondName, String address, String dob, long customerID, Card card) {
         this.firstName = firstName;
         this.secondName = secondName;
         this.address = address;
         this.dob = dob;
         this.customerID = customerID;
-        this.cardNumber = cardNumber;
-        this.pinCode = pinCode;
+
+        this.card = card;
+        cards = new ArrayList<>();
+        cards.add(card);
     }
 
     public String getFirstName() {
@@ -51,32 +59,29 @@ public class Customer {
         this.dob = dob;
     }
 
-    public int getCustomerID() {
+    public long getCustomerID() {
         return customerID;
     }
 
-    public void setCustomerID(int customerID) {
+    public void setCustomerID(long customerID) {
         this.customerID = customerID;
     }
 
-    public int getCardNumber() {
-        return cardNumber;
+
+    public Card getCard() {
+        return card;
     }
 
-    public void setCardNumber(int cardNumber) {
-        this.cardNumber = cardNumber;
+    public void setCard(Card card) {
+        this.card = card;
     }
 
-    public int getPinCode() {
-        return pinCode;
+    public void addCard(Card card) {
+        cards.add(card);
     }
 
-    public void setPinCode(int pinCode) {
-        this.pinCode = pinCode;
-    }
-
-    public void passess(){
-
+    public void deleteCard(Card card){
+        cards.removeIf(card1 -> card1.equals(card));
     }
 
 }

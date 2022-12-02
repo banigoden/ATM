@@ -1,43 +1,55 @@
 package bank.card;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.List;
 
 public class CreditCard  extends Card{
 
-    private int cardNumber;
+    private long cardNumber;
     private String ownedBy;
-    private List<PaymentSystem> paymentSystems;
+    private List<Card> cards;
+    private PaymentSystem paymentSystem;
 
-    public CreditCard() {
-        paymentSystems = List.of(PaymentSystem.Visa, PaymentSystem.Mastercard);
+    public CreditCard(long cardNumber, String ownedBy, int pinCode, PaymentSystem paymentSystem) {
+        super(cardNumber, ownedBy, pinCode, paymentSystem);
     }
 
-    public int getCardNumber() {
+    @Override
+    public long getCardNumber() {
         return cardNumber;
     }
 
-    public void setCardNumber(int cardNumber) {
+    public void setCardNumber(long cardNumber) {
         this.cardNumber = cardNumber;
     }
 
+    @Override
     public String getOwnedBy() {
         return ownedBy;
     }
 
+    @Override
     public void setOwnedBy(String ownedBy) {
         this.ownedBy = ownedBy;
     }
 
-    public List<PaymentSystem> getPaymentSystems() {
-        return paymentSystems;
+    @Override
+    public PaymentSystem getPaymentSystem() {
+        return paymentSystem;
     }
 
-    public void setPaymentSystems(ArrayList<PaymentSystem> paymentSystems) {
-
-        this.paymentSystems = paymentSystems;
+    @Override
+    public void setPaymentSystem(PaymentSystem paymentSystem) {
+        this.paymentSystem = paymentSystem;
     }
+
+    public void addCard(Card card){
+        cards.add(card);
+    }
+
+
+
+
 
 
 }

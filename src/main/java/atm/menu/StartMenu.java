@@ -1,17 +1,20 @@
 package atm.menu;
 
+import bank.card.Card;
+import service.AuthentificationService;
 import service.CardVerificationServise;
 
 public class StartMenu {
 
-     void welcomeScreen(){
+    public void welcomeScreen(){
         System.out.println("Welcome!"
                 + "Please insert the card.");
        String card = Requester.requestLine("Enter card : ");
        CardVerificationServise.verify(card);
+       pleaseWait();
     }
 
-     void pleaseWait(){
+     public void pleaseWait(){
         System.out.println("Please wait!");
         try {
             Thread.sleep(700);
@@ -20,9 +23,11 @@ public class StartMenu {
         }
     }
 
-     void enterPIN(){
-         int pin = Requester.requestInt("Enter PIN: ");
+     public void enterPIN(Card card){
+         int pin =Requester.requestInt("Enter PIN: ");
+         AuthentificationService.validate(card, pin);
 
     }
+
 
 }
