@@ -1,5 +1,6 @@
 package atm.atmmashine.device;
 
-public interface Devices {
-    void firmware();
+public enum Devices {
+
+    CardReader, CashDispenser, Display, Keypad, NetworkInterface, NFCCardReader, ReceiptPrinter, Speaker
 }
