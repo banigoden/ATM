@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class MenuRander {
 
     public static void menu(){
-        System.out.println("1 Deposit\t" + "3 Balance inquiry\n" +  "2 Withdrow\t" + "4 Transfer & Payments\n"
-        + "5 Return card\t");
+        System.out.println("1 Deposit\t\t" + "3 Balance inquiry\n" +  "2 Withdrow\t\t" + "4 Transfer & Payments\n"
+        + "5 Return card\t\t");
         render();
     }
 

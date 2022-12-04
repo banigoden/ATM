@@ -5,7 +5,7 @@ import bank.card.Card;
 
 public class AuthentificationService {
 
-    public static void validate(Card card, int key) {
+    public static void validate(Card card, int pin) {
         int coutDown = 3;
 
         boolean isFalse = false;
@@ -15,7 +15,7 @@ public class AuthentificationService {
         }
 
         while (coutDown > 0 && isFalse == false) {
-            if (card.getPinCode() == key) {
+            if (card.getPinCode() == pin) {
                 isFalse = true;
             }else {
                 coutDown--;
@@ -24,13 +24,14 @@ public class AuthentificationService {
                     cardIsBlocked();
                     card.setBlocked(true);
                 }
-                validate(card, Requester.requestInt("\nEnter PIN:"));
+                pin = Requester.requestInt("\nEnter PIN: ");
+
             }
         }
     }
 
    public static void cardIsBlocked(){
-       System.out.println("Your card is blocked." +
+       System.out.println(" Your card is blocked. " +
                "Please call your bank.");
 
    }

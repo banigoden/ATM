@@ -18,9 +18,10 @@ public class Client extends Customer{
         Card cardsPaul = new Card(442323232, "Paul Shobatskiy", 3412, PaymentSystem.Visa);
 
         Client paul = new Client("Paul", "Shobatskiy",
-                "Germany, Berlin, Shvarts 2","Departure 2",22142, cardsPaul);
+                "Germany, Berlin, Shvarts 2","Departament 2",22142, cardsPaul);
         StartMenu startMenu = new StartMenu();
         startMenu.welcomeScreen();
         startMenu.enterPIN(cardsPaul);
+        MenuRander.menu();
     }
 }
