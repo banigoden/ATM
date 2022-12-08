@@ -18,17 +18,15 @@ public class CardVerificationServise {
                             .findFirst();
 
         try{
-        if (result.get().toString().toLowerCase(Locale.ROOT).equals(card)) {
+
+        if (result.get().toString().toLowerCase(Locale.ROOT).equals(card)) 
             System.out.println("The card is valid");
-        } else {
-            System.out.println("The card doesn't support by ATM." +
-                    "Please put other card.");
-            verify(Requester.requestLine("Enter card : "));
-        }
+
         }catch (NoSuchElementException e){
             System.out.println("Please insert a valid card!");
+            verify(Requester.requestLine("Enter card : "));
         }
-        
+
         return result;
     }
 }
