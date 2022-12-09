@@ -1,8 +1,8 @@
 package checkcard;
 
-import bank.card.PaymentSystem;
+import com.banigoden.atm.domain.card.PaymentSystems;
 import org.junit.jupiter.api.DisplayName;
-import service.CardVerificationServise;
+import com.banigoden.atm.service.CardVerificationServise;
 import org.junit.jupiter.api.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -13,16 +13,26 @@ import java.util.Optional;
 
 
 public class CheckCard {
+    //positive  Negative
+
+
+
 
     @Test
-    public void givenCardIsProvided_optionalCardIsReturned(){
-        Optional<PaymentSystem> result = CardVerificationServise.verify("visa");
-        assertThat(result, equalTo(Optional.of(PaymentSystem.Visa)));
+    public void shouldValidateSuccesfulyWhenCardIsExist(){ //shouldValidateSuccesfulyWhenCardIsExist
+        //given
+
+
+        //when
+
+        //then
+        Optional<PaymentSystems> result = CardVerificationServise.verify("visa");
+        assertThat(result, equalTo(Optional.of(PaymentSystems.Visa)));
     }
 
     @Test
     public void givenCard_whenInvalidCardProvided_optionalEmptyIsReturned(){
-        Optional<PaymentSystem> result = CardVerificationServise.verify("Care");
+        Optional<PaymentSystems> result = CardVerificationServise.verify("Care");
         assertFalse(result.isEmpty());
     }
 
@@ -35,7 +45,7 @@ public class CheckCard {
 
     @Test
     public void givenCard_whenInvalidStringCardProvided_optionalEmptyIsReturned(){
-        Optional<PaymentSystem> result = CardVerificationServise.verify("123");
+        Optional<PaymentSystems> result = CardVerificationServise.verify("123");
         assertFalse(result.isEmpty());
     }
 
