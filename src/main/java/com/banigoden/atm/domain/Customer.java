@@ -1,16 +1,14 @@
 package com.banigoden.atm.domain;
 
 import com.banigoden.atm.domain.card.Card;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.List;
 
-@Getter @Setter
+@Data
 @AllArgsConstructor
+@NoArgsConstructor
 //@EqualsAndHashCode(of = {"card"})
 @ConfigurationProperties(prefix = "client")
 public class Customer {
