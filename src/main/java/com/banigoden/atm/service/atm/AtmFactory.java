@@ -12,6 +12,12 @@ public class AtmFactory {
         if (AtmTypes.T1000.equals(applicationProperties.getAtmType())){
             return new AtmVivi();
         }
+        if (AtmTypes.T2000.equals(applicationProperties.getAtmType())){
+            return new AtmVivi();
+        }
+        if (AtmTypes.T3000.equals(applicationProperties.getAtmType())){
+            return new AtmVivi();
+        }
         return null;
     }
 

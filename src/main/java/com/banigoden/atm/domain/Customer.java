@@ -1,10 +1,18 @@
 package com.banigoden.atm.domain;
 
 import com.banigoden.atm.domain.card.Card;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
-import java.util.ArrayList;
 import java.util.List;
 
+@Getter @Setter
+@AllArgsConstructor
+//@EqualsAndHashCode(of = {"card"})
+@ConfigurationProperties(prefix = "client")
 public class Customer {
     private String firstName;
     private String secondName;
@@ -13,67 +21,6 @@ public class Customer {
     private long customerID;
     private Card card;
     private List<Card> cards;
-
-    public Customer(String firstName, String secondName, String address, String dob, long customerID, Card card) {
-        this.firstName = firstName;
-        this.secondName = secondName;
-        this.address = address;
-        this.dob = dob;
-        this.customerID = customerID;
-
-        this.card = card;
-        cards = new ArrayList<>();
-        cards.add(card);
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getSecondName() {
-        return secondName;
-    }
-
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getDob() {
-        return dob;
-    }
-
-    public void setDob(String dob) {
-        this.dob = dob;
-    }
-
-    public long getCustomerID() {
-        return customerID;
-    }
-
-    public void setCustomerID(long customerID) {
-        this.customerID = customerID;
-    }
-
-
-    public Card getCard() {
-        return card;
-    }
-
-    public void setCard(Card card) {
-        this.card = card;
-    }
 
     public void addCard(Card card) {
         cards.add(card);

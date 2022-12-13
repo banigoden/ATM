@@ -1,6 +1,17 @@
 package com.banigoden.atm.domain.card;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ConfigurationProperties(prefix = "card")
 public class Card {
+    @Value("${cardNumber}")
     private long cardNumber;
     private String ownedBy;
     private int pinCode;
@@ -14,5 +25,4 @@ public class Card {
         this.paymentSystem = paymentSystem;
         isBlocked = false;
     }
-
 }
