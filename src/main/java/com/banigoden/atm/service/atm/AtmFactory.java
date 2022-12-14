@@ -8,17 +8,16 @@ public class AtmFactory {
         return new AtmFactory();
     }
 
-    public Atm createAtm(ApplicationProperties applicationProperties) {
+    public Atm creatyAtm(ApplicationProperties applicationProperties) {
         if (AtmTypes.T1000.equals(applicationProperties.getAtmType())){
             return new AtmVivi();
         }
-        if (AtmTypes.T2000.equals(applicationProperties.getAtmType())){
+        else if (AtmTypes.T2000.equals(applicationProperties.getAtmType())){
             return new AtmVivi();
         }
-        if (AtmTypes.T3000.equals(applicationProperties.getAtmType())){
+        else if (AtmTypes.T3000.equals(applicationProperties.getAtmType())){
             return new AtmVivi();
         }
         return null;
     }
-
 }
