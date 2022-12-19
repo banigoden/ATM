@@ -1,9 +1,7 @@
 package com.banigoden.atm.domain.card;
 
 public enum PaymentSystems {
-
-    // Visa, Mastercard, UnionPay, Coinbase
-     Visa("visa"), Mastercard("mastercard"), UnionPay("unionpay"), Coinbase("coinbase");
+     VISA("visa"), MASTERCARD("mastercard"), UNIONPAY("unionpay"), COINBASE("coinbase");
 
      private final String paymentSystem;
 

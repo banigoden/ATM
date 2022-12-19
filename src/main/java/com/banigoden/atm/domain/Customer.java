@@ -11,17 +11,11 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 //@EqualsAndHashCode(of = {"card"})
-@ConfigurationProperties(prefix = "client")
 public class Customer {
-    @Value("$(client.firstName)")
     private String firstName;
-    @Value("$(client.secondName)")
     private String secondName;
-    @Value("$(client.address)")
     private String address;
-    @Value("$(client.dob)")
     private String dob; //Department of Bank
-    @Value("$(client.customerID)")
     private long customerID;
     private Card card;
     private List<Card> cards;

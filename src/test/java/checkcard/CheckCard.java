@@ -7,53 +7,50 @@ import org.junit.jupiter.api.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
 
 public class CheckCard {
     //positive  Negative
-
-
-
-
     @Test
-    public void shouldValidateSuccesfulyWhenCardIsExist(){ //shouldValidateSuccesfulyWhenCardIsExist
+    public void shouldValidateSuccesfulyWhenCardIsExist(){
         //given
 
 
         //when
 
         //then
-        Optional<PaymentSystems> result = CardVerificationServise.verify("visa");
-        assertThat(result, equalTo(Optional.of(PaymentSystems.Visa)));
+        Optional<PaymentSystems> result = new CardVerificationServise().verify("visa");
+        assertThat(result, equalTo(Optional.of(PaymentSystems.VISA)));
+    }
+    @Test
+    public void shouldValidateUnsuccesfulyWhenCardIsNotExist(){
+        Optional<PaymentSystems> result = new CardVerificationServise().verify("card");
+       // assertFalse(result,);
+        assertThat(result, equalTo(Optional.of(PaymentSystems.VISA)));
     }
 
-    @Test
-    public void givenCard_whenInvalidCardProvided_optionalEmptyIsReturned(){
-        Optional<PaymentSystems> result = CardVerificationServise.verify("Care");
-        assertFalse(result.isEmpty());
-    }
+//
 
     @DisplayName("NoSuchElementException")
     @Test
     public void givenCard_whenInvalidCardProvided_ExceptionIsReturned(){
-        Exception exception =  assertThrows(NoSuchElementException.class, () -> CardVerificationServise.verify("Cd"));
+        Exception exception =  assertThrows(NoSuchElementException.class, () -> new CardVerificationServise().verify("Cd"));
         assertEquals("Please insert a valid card!", exception.getMessage());
     }
 
     @Test
     public void givenCard_whenInvalidStringCardProvided_optionalEmptyIsReturned(){
-        Optional<PaymentSystems> result = CardVerificationServise.verify("123");
+        Optional<PaymentSystems> result = new CardVerificationServise().verify("123");
         assertFalse(result.isEmpty());
     }
 
-    @DisplayName("PIN test")
-    @Test
-    public void checkPIN_whenInvalidLetterProvided_exceptionIsReturn(){
-//        Exception exception = assertThrows();
-    }
+//    @DisplayName("PIN test")
+//    @Test
+//    public void checkPIN_whenInvalidLetterProvided_exceptionIsReturn(){
+////        Exception exception = assertThrows();
+//    }
 
 //    @Test
 //    public void givenFileName_whenUsingFileUtils_thenFileData() {

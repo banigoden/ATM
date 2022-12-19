@@ -9,15 +9,12 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 public class CardVerificationServise {
-
-    public static Optional<PaymentSystems> verify(String card) {
+    public Optional<PaymentSystems> verify(String card) {
         Optional<PaymentSystems> result =
                     Arrays.stream(PaymentSystems.values())
                             .filter(cards -> cards.getPaymentSystem().toLowerCase().equalsIgnoreCase(card))
                             .findFirst();
-
         try{
-
         if (result.get().toString().toLowerCase(Locale.ROOT).equals(card))
             System.out.println("The card is valid");
 
@@ -25,7 +22,6 @@ public class CardVerificationServise {
             System.out.println("Please insert a valid card!");
             verify(Requester.requestLine("Enter card : "));
         }
-
         return result;
     }
 

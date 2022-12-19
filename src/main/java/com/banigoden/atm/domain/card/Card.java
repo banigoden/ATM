@@ -1,27 +1,23 @@
 package com.banigoden.atm.domain.card;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import lombok.*;
+
 
 @Data
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ConfigurationProperties(prefix = "card")
 public class Card {
-    @Value("$(card.cardNumber)")
     private long cardNumber;
-    @Value("$(card.ownedBy)")
     private String ownedBy;
-    @Value("$(card.pinCode)")
     private int pinCode;
-    @Value("$(card.paymentSystem)")
     private PaymentSystems paymentSystem;
-    private boolean isBlocked;
+    private String nameOfBank;
+    private boolean block;
+    private int attempt;
 
-
+    public boolean getBlock() {
+        return block;
+    }
 }
