@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Requester implements AutoCloseable{
     private static Scanner scanner = new Scanner(System.in);;
 
- //add call of repeat enter after exception
     public static String requestLine(String requestMessage){
         String value = "";
         System.out.print(requestMessage);

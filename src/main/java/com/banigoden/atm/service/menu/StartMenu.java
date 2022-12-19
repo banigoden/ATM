@@ -1,7 +1,5 @@
 package com.banigoden.atm.service.menu;
 
-import com.banigoden.atm.domain.card.Card;
-import com.banigoden.atm.service.AuthentificationService;
 import com.banigoden.atm.service.CardVerificationServise;
 
 public class StartMenu {
@@ -11,12 +9,12 @@ public class StartMenu {
         this.name = name;
     }
 
-    public  void welcomeScreen(){
+    public String welcomeScreen(){
         System.out.println("Welcome to the " + name
                 + " Please insert the card.");
        String card = Requester.requestLine("Enter card : ");
-       new CardVerificationServise().verify(card);
        pleaseWait();
+       return card;
     }
 
      public void pleaseWait(){

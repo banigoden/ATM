@@ -4,17 +4,17 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CardVerificationServiseTest {
+class CardVerificationServiceTest {
 
     public CardVerificationServise cardVerificationServise = new CardVerificationServise();
     @Test
     void validate() {
         //given
-        String cardName = "";
+        String cardName = "visa";
 
 
         //when
-       boolean actual = cardVerificationServise.validate(cardName);
+       boolean actual = cardVerificationServise.verify(cardName);
 
         //then
         assertTrue(actual);
@@ -23,17 +23,10 @@ class CardVerificationServiseTest {
     @Test
     void invalidate() {
         //given
-        String cardName = "";
-
-
+        String cardName = "no";
         //when
-       boolean actual = cardVerificationServise.validate(cardName);
-
+       boolean actual = cardVerificationServise.verify(cardName);
         //then
         assertFalse(actual);
     }
-
-
-//    @Test
-//    ShouldValidateWhen
 }

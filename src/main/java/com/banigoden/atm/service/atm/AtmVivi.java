@@ -2,6 +2,7 @@ package com.banigoden.atm.service.atm;
 
 import com.banigoden.atm.domain.card.Card;
 import com.banigoden.atm.service.AuthentificationService;
+import com.banigoden.atm.service.CardVerificationServise;
 import com.banigoden.atm.service.atm.Atm;
 import com.banigoden.atm.service.menu.MenuRander;
 import com.banigoden.atm.service.menu.StartMenu;
@@ -17,10 +18,13 @@ public class AtmVivi implements Atm {
 
     @Override
     public void startServ() {
+        boolean fallenTestCard;
         StartMenu startMenu = new StartMenu(name);
-        startMenu.welcomeScreen();
+        String cardName = startMenu.welcomeScreen();
+        fallenTestCard = new CardVerificationServise().verify(cardName);
         AuthentificationService authentificationService = new AuthentificationService();
-        authentificationService.validate(card);
+        int pin = authentificationService.askPin();
+        authentificationService.checkAttempts(card,pin);
         MenuRander menuRander = new MenuRander();
         menuRander.render();
 
